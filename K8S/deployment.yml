@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gaming-hunt-deployment
+spec:
+  replicas: 1  # Number of desired replicas
+  selector:
+    matchLabels:
+      app: gaming
+  template:
+    metadata:
+      labels:
+        app: gaming
+    spec:
+      containers:
+      - name: gaming
+        image: amuldark/gaming-hunt:v1
+        ports:
+        - containerPort: 3000  # Port your application listens on
